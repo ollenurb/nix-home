@@ -1,0 +1,6 @@
+[
+  ./alacritty
+  ./polybar
+  ./neovim
+  ./rofi
+]
