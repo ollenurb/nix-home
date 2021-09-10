@@ -7,8 +7,6 @@ let
   catCmd = "/run/current-system/sw/bin/cat";
 in
   pkgs.writeShellScriptBin "batterycomb" ''
-
-
   ac=0
   battery_level_0=0
   battery_level_1=0
@@ -43,7 +41,7 @@ in
 
   if [ "$ac" -eq 1 ]; then
       icon=""
-      echo "$icon $battery_percent %"
+      echo "$icon $battery_percent%"
   else
       if [ "$battery_percent" -gt 95 ]; then
           icon=""
@@ -59,6 +57,6 @@ in
           icon=""
       fi
 
-      echo "$icon $battery_percent %"
+      echo "$icon $battery_percent%"
   fi
 ''

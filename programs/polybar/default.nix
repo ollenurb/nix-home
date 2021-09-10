@@ -29,7 +29,7 @@ in
     config = ./config.ini;
     extraConfig = customModules;
     script = ''
-  polybar main &
+  polybar top &
   '';
   };
 }
