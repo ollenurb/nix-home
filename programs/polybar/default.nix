@@ -15,6 +15,10 @@ let
     [module/battery-combined]
     type = custom/script
     exec = ${battScript}/bin/batterycomb
+    format = <label>
+    format-foreground = ''${colors.Black}
+    format-background = ''${colors.DarkGrey} 
+    label = %output%
 
     interval = 5
   '';

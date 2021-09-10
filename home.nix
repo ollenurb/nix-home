@@ -2,17 +2,19 @@
 
 let
   defaultPkgs = with pkgs; [
-    killall                 # kill all processes
-    duf                     # disk usage/free utility
-    fd                      # "find" for files
-    exa                     # a better ls
-    libnotify               # notify-send command
-    nix-doc                 # nix documentation search tool
-    pavucontrol             # pulseaudio control
-    firefox                 		# seriously?
-    pandoc 		    		# To create LaTeX files
-    texlive.combined.scheme-full
-    spotify
+    htop				# better top
+    killall                 		# kill all processes
+    duf                     		# disk usage/free utility
+    fd                      		# "find" for files
+    exa                      		# a better ls
+    libnotify               		# notify-send command
+    nix-doc                 		# nix documentation search tool
+    pavucontrol             		# pulseaudio control
+    firefox                 		# browser
+    pandoc 		    		# Documents generator
+    texlive.combined.scheme-full        # LaTeX
+    spotify				# Music player
+    rofi-power-menu			# Power menu
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -39,7 +41,7 @@ in {
     };
     iconTheme = {
       package = pkgs.gruvbox-dark-icons-gtk;
-      name = "Gruvbox-Dark";
+      name = "oomox-gruvbox-dark";
     };
   };
 
