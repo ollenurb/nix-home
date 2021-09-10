@@ -30,6 +30,19 @@ in {
     };
   }; 
 
+  # Change GTK theme
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.gruvbox-dark-gtk;
+      name = "gruvbox-dark";
+    };
+    iconTheme = {
+      package = pkgs.gruvbox-dark-icons-gtk;
+      name = "Gruvbox-Dark";
+    };
+  };
+
   imports = (import ./programs);
 
   programs = {
@@ -39,6 +52,7 @@ in {
       userName = "Ollenurb";
       userEmail = "brunello.mtt@gmail.com";
     };
+
     home-manager = {
       enable = true;
     };

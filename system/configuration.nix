@@ -73,7 +73,6 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matteo = {
     isNormalUser = true;
@@ -113,6 +112,16 @@ in
 
   # List services that you want to enable:
   services.acpid.enable = true;
+
+  programs.dconf.enable = true;
+
+  services = {
+    dbus= {
+      enable = true;
+      packages = with pkgs; [ gnome3.dconf ];
+    };
+  };
+
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
