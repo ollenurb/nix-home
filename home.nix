@@ -2,24 +2,24 @@
 
 let
   defaultPkgs = with pkgs; [
-    htop				# better top
-    killall                 		# kill all processes
-    duf                     		# disk usage/free utility
-    fd                      		# "find" for files
-    exa                      		# a better ls
-    libnotify               		# notify-send command
-    nix-doc                 		# nix documentation search tool
-    pavucontrol             		# pulseaudio control
-    firefox                 		# browser
-    pandoc 		    		# Documents generator
-    texlive.combined.scheme-full        # LaTeX
-    spotify				# Music player
-    rofi-power-menu			# Power menu
-    feh					# Image viewer
-    maim				# Screeshot taker
-    tdesktop	                        # Telegram
-    element-desktop			# Matrix client
-    discord				# discord 
+    htop				                      # better top
+    killall                 		      # kill all processes
+    duf                     		      # disk usage/free utility
+    fd                      		      # "find" for files
+    exa                      		      # a better ls
+    libnotify               		      # notify-send command
+    nix-doc                 		      # nix documentation search tool
+    pavucontrol             		      # pulseaudio control
+    firefox                 		      # browser
+    pandoc                            # Documents generator
+    texlive.combined.scheme-full      # LaTeX
+    spotify                           # Music player
+    rofi-power-menu                   # Power menu
+    feh                               # Image viewer
+    maim                              # Screeshot taker
+    tdesktop                          # Telegram
+    discord                           # discord 
+    element-desktop                   # Matrix client
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -49,6 +49,9 @@ in {
       name = "oomox-gruvbox-dark";
     };
   };
+
+  # Doesn't work, figure out why..
+  # services.betterlockscreen.enable = true;
 
   imports = (import ./programs);
 
