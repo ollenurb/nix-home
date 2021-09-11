@@ -1,12 +1,14 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ../../theming/gruvbox-colors.nix ];
+
   services.dunst = {
     enable = true;
     settings = {
       global = {
         geometry = "500x6-14+44";
-	frame_color = "#282828";
+	frame_color = "${config.colors.background}";
 	font = "Iosevka Nerd Font 12";
 	word_wrap = true;
 	markup = true;
@@ -19,20 +21,20 @@
       };
 
       urgency_low = {
-        background = "#83a598";
-        foreground = "#282828";
+        background = "${config.colors.color12}";
+        foreground = "${config.colors.background}";
 	timeout = 10;
       };
 
       urgency_normal = {
-        background = "#83a598";
-        foreground = "#282828";
+        background = "${config.colors.color12}";
+        foreground = "${config.colors.background}";
 	timeout = 10;
       };
 
       urgency_critical = {
-        background = "#cc241d";
-        foreground = "#928374";
+        background = "${config.colors.color1}";
+        foreground = "${config.colors.background}";
 	timeout = 0;
       };
 
