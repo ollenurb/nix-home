@@ -20,6 +20,7 @@ let
     tdesktop                          # Telegram
     discord                           # discord 
     element-desktop                   # Matrix client
+    gnumake                           # Make utility
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
