@@ -5,7 +5,11 @@
     enable = true;
     terminal = "${pkgs.alacritty}/bin/alacritty";
     theme = ./theme.rafi;
-    width = 25;
+    font = "FuraCode Nerd Font 16";
+    width = 35;
     lines = 10;
+    extraConfig = {
+      show-icons = true;
+    };
   };
 }

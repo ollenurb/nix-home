@@ -15,6 +15,11 @@ let
     texlive.combined.scheme-full        # LaTeX
     spotify				# Music player
     rofi-power-menu			# Power menu
+    feh					# Image viewer
+    maim				# Screeshot taker
+    tdesktop	                        # Telegram
+    element-desktop			# Matrix client
+    discord				# discord 
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [

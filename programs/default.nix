@@ -3,4 +3,5 @@
   ./polybar
   ./neovim
   ./rofi
+  ./picom
 ]
