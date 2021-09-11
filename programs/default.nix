@@ -4,4 +4,5 @@
   ./neovim
   ./rofi
   ./picom
+  ./dunst
 ]
