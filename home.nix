@@ -6,6 +6,7 @@ let
     killall                 		      # kill all processes
     duf                     		      # disk usage/free utility
     fd                      		      # "find" for files
+    fzf                               # fuzzy finder
     exa                      		      # a better ls
     libnotify               		      # notify-send command
     nix-doc                 		      # nix documentation search tool
@@ -54,7 +55,7 @@ in {
   # Doesn't work, figure out why..
   # services.betterlockscreen.enable = true;
 
-  imports = (import ./programs);
+  imports = (import ./programs) ++ (import ./shell);
 
   programs = {
     bat.enable = true;
