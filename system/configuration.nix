@@ -20,9 +20,15 @@ in
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    devices = [ "nodev" ];
+    efiSupport = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "lambda"; # Define your hostname.
+
+  # Define your hostname
+  networking.hostName = "lambda"; 
 	
   # Setup network manager and nm-applet
   networking.networkmanager.enable = true;
@@ -106,22 +112,11 @@ in
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    i3-gaps
     xorg.xbacklight
   ];
 
   # List services that you want to enable:
   services.acpid.enable = true;
-
-  programs.dconf.enable = true;
-
-  services = {
-    dbus= {
-      enable = true;
-      packages = with pkgs; [ gnome3.dconf ];
-    };
-  };
-
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
