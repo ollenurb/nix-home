@@ -62,6 +62,9 @@ in {
       enable = true;
       userName = "Ollenurb";
       userEmail = "brunello.mtt@gmail.com";
+      extraConfig = {
+        core.editor = "nvim";
+      };
     };
 
     home-manager = {
