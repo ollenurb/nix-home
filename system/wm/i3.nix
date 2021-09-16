@@ -5,8 +5,6 @@
   # Enabling dconf allow the use of gsettings
   programs.dconf.enable = true;
   services = {
-    # Enable power management through upower
-    upower.enable = true;
     dbus = {
       enable = true;
       packages = [ pkgs.gnome3.dconf ];	

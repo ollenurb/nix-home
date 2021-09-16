@@ -11,7 +11,7 @@ in
 {
   imports =
     [
-      # Include hardare-specific configuration
+      # Include hardware-specific configuration
       <nixos-hardware/lenovo/thinkpad/t470s>
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -19,13 +19,21 @@ in
       ./wm/i3.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.grub = {
-    enable = true;
-    devices = [ "nodev" ];
-    efiSupport = true;
+  # Use the GRUB bootloader.
+  boot.loader = {
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+    };
+    efi.canTouchEfiVariables = true;
   };
-  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Enable battery management through upower
+  services.upower.enable = true;
+
+  # Enable power management through tlp 
+  services.tlp.enable = true;
 
   # Define your hostname
   networking.hostName = "lambda"; 
@@ -44,7 +52,7 @@ in
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = true;
+  networking.interfaces.enp0s31f6.useDHCP = false;
   networking.interfaces.wlp4s0.useDHCP = true;
 
   # Configure network proxy if necessary
