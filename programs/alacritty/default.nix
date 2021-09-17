@@ -4,6 +4,10 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      window = {
+        padding.x = 4;
+        dynamic_padding = true;
+      };
 
       font = {
         normal.family = "Iosevka Nerd Font Mono";

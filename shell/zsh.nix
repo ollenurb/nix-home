@@ -11,5 +11,8 @@
       ls = "ls --color=auto";
       l = "exa -l";
     }; 
+    initExtra = ''
+        PROMPT="%B%F{blue}λ%f %F{244}%f %F{cyan}%1~%f%b "
+    '';
   };
 }
