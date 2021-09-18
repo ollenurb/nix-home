@@ -19,7 +19,7 @@ let
     feh                               # Image viewer
     maim                              # Screeshot taker
     tdesktop                          # Telegram
-    discord                           # discord 
+    discord                           # discord
     element-desktop                   # Matrix client
     gnumake                           # Make utility
   ];

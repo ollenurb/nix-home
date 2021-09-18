@@ -40,25 +40,45 @@ in
 
     extraConfig = builtins.concatStringsSep "\n" [
       (lib.strings.fileContents ./base.vim)
+      (lib.strings.fileContents ./plugins.vim)
       (lib.strings.fileContents ./lsp.vim)
     ];
 
-    
-    # install needed binaries here 
+    extraPackages = with pkgs; [
+      tree-sitter
+    ];
+
+
+    # install needed binaries here
     # extraPackages = with pkgs; [
       # installs different langauge servers for neovim-lsp
       # metals
     # ];
 
     plugins = with pkgs.vimPlugins; [
+      # Language Server Protocol - Related
       (plugin "neovim/nvim-lspconfig")
-      (plugin "hrsh7th/nvim-compe") # completion
-      (plugin "Raimondi/delimitMate") # auto bracket
+      (plugin "hrsh7th/nvim-compe")
 
-      # syntax highlighting
+      # Syntax highlighting/language-specific
+      (plugin "p00f/nvim-ts-rainbow")
       (plugin "nvim-treesitter/nvim-treesitter")
-      (plugin "p00f/nvim-ts-rainbow") # bracket highlighting
-      (plugin "LnL7/vim-nix") # nix syntax support
+      (plugin "LnL7/vim-nix")
+      (plugin "vim-latex/vim-latex")
+      (plugin "plasticboy/vim-markdown")
+
+      # Misc
+      (plugin "Raimondi/delimitMate") # auto bracket
+      (plugin "tpope/vim-commentary")
+      (plugin "tpope/vim-fugitive")
+      (plugin "godlygeek/tabular")
+      (plugin "vimwiki/vimwiki")
+      (plugin "ntpeters/vim-better-whitespace")
+
+      # EyeCandies
+      (plugin "morhetz/gruvbox")
+      (plugin "vim-airline/vim-airline")
+      (plugin "ryanoasis/vim-devicons")
     ];
   };
 }

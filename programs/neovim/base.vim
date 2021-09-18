@@ -1,6 +1,9 @@
+" ----------------------------------------------------------------------------
 " Basic stuff
+" ----------------------------------------------------------------------------
 filetype plugin on
 syntax on
+colorscheme gruvbox
 set noswapfile
 set ignorecase
 set encoding=utf-8
