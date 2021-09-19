@@ -17,7 +17,7 @@ let
     exec = ${battScript}/bin/batterycomb
     format = <label>
     format-foreground = ''${colors.Black}
-    format-background = ''${colors.DarkGrey} 
+    format-background = ''${colors.DarkGrey}
     label = %output%
 
     interval = 5
@@ -26,7 +26,6 @@ let
   customModules = batteryCombinedModule;
 in
 {
-
   services.polybar = {
     enable = true;
     package = myPolybar;

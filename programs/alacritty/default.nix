@@ -1,6 +1,7 @@
-{  fontSize, pkgs, ... }:
+{ config, fontSize, pkgs, ... }:
 
 {
+  imports = [ ../../theming/gruvbox-colors.nix ];
   programs.alacritty = {
     enable = true;
     settings = {
@@ -18,31 +19,31 @@
 
       colors = {
         primary = {
-          background = "#282828";
-          foreground = "#ebdbb2";
+          background = "${config.colors.background}";
+          foreground = "${config.colors.foreground}";
         };
         # Normal colors
         normal = {
-          black =  "#282828";
-          red =    "#cc241d";
-          green =  "#98971a";
-          yellow = "#d79921";
-          blue =   "#458588";
-          magenta ="#b16286";
-          cyan =   "#689d6a";
-          white =  "#ebdbb2";
+          black =  "${config.colors.color0}";
+          red =    "${config.colors.color1}";
+          green =  "${config.colors.color2}";
+          yellow = "${config.colors.color3}";
+          blue =   "${config.colors.color4}";
+          magenta ="${config.colors.color5}";
+          cyan =   "${config.colors.color6}";
+          white =  "${config.colors.color7}";
         };
 
         # Bright colors
         bright = {
-          black =  "#928374";
-          red =    "#fb4934";
-          green =  "#b8bb26";
-          yellow = "#fabd2f";
-          blue =   "#83a598";
-          magenta ="#d3869b";
-          cyan =   "#8ec07c";
-          white =  "#ebdbb2";
+          black =  "${config.colors.color8}";
+          red =    "${config.colors.color9}";
+          green =  "${config.colors.color10}";
+          yellow = "${config.colors.color11}";
+          blue =   "${config.colors.color12}";
+          magenta ="${config.colors.color13}";
+          cyan =   "${config.colors.color14}";
+          white =  "${config.colors.color15}";
         };
       };
     };
