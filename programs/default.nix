@@ -5,4 +5,5 @@
   ./rofi
   ./picom
   ./dunst
+  ./lf
 ]

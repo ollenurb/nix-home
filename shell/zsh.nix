@@ -9,8 +9,8 @@
       options-nixos = "man configuration.nix";
       options-home = "man home-configuration.nix";
       ls = "ls --color=auto";
-      l = "exa -l";
-    }; 
+      l = "exa -l --icons";
+    };
     initExtra = ''
         PROMPT="%B%F{blue}λ%f %F{244}%f %F{cyan}%1~%f%b "
     '';

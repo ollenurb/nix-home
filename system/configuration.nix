@@ -32,12 +32,12 @@ in
   # Enable battery management through upower
   services.upower.enable = true;
 
-  # Enable power management through tlp 
+  # Enable power management through tlp
   services.tlp.enable = true;
 
   # Define your hostname
-  networking.hostName = "lambda"; 
-	
+  networking.hostName = "lambda";
+
   # Setup network manager and nm-applet
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
@@ -79,7 +79,6 @@ in
     customFonts
     font-awesome-ttf
   ];
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;

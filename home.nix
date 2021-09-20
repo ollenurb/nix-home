@@ -22,6 +22,7 @@ let
     discord                           # discord
     element-desktop                   # Matrix client
     gnumake                           # Make utility
+    anki                              # Spaced-repetition program
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
