@@ -23,6 +23,8 @@ let
     element-desktop                   # Matrix client
     gnumake                           # Make utility
     anki                              # Spaced-repetition program
+    mpv                               # Video Player
+    zathura                           # .pdf viewer
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [

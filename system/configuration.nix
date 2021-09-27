@@ -120,6 +120,10 @@ in
     xorg.xbacklight
   ];
 
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
   # List services that you want to enable:
   services.acpid.enable = true;
 
