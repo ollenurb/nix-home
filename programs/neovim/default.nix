@@ -42,8 +42,14 @@ in
     # Configurations are stored in separate files
     extraConfig = builtins.concatStringsSep "\n" [
       (lib.strings.fileContents ./base.vim)
-      (lib.strings.fileContents ./plugins.vim)
+      (lib.strings.fileContents ./plugins/plugins.vim)
       (lib.strings.fileContents ./lsp.vim)
+      ''
+        lua << EOF
+        ${lib.strings.fileContents ./plugins/statusline.lua}
+        ${lib.strings.fileContents ./plugins/bufferline.lua}
+        EOF
+      ''
     ];
 
     # Some packages required to run plugins
@@ -63,7 +69,6 @@ in
       nvim-ts-rainbow
       nvim-treesitter
       vim-nix
-      vim-latex-live-preview
       vim-markdown
 
       # Misc
@@ -73,16 +78,14 @@ in
       tabular
       vimwiki
       vim-better-whitespace
+      nvim-toggleterm-lua
+      vim-gitgutter
 
       # EyeCandies
       gruvbox
-      vim-airline
-      vim-airline-themes
-      vim-devicons
-
-      # Python
-      vim-slime
-      (plugin "hanschen/vim-ipython-cell")
+      nvim-web-devicons
+      nvim-bufferline-lua
+      galaxyline-nvim
     ];
   };
 }

@@ -6,8 +6,9 @@
     enable = true;
     settings = {
       window = {
-        padding.x = 4;
-        dynamic_padding = true;
+        dynamic-padding = true;
+        padding.x = 0;
+        padding.y = 0;
       };
 
       font = {
