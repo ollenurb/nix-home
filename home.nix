@@ -25,6 +25,7 @@ let
     anki                              # Spaced-repetition program
     mpv                               # Video Player
     zathura                           # .pdf viewer
+    betterlockscreen                  # lockscreen
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -40,7 +41,7 @@ in {
     sessionVariables = {
       EDITOR = "nvim";
     };
-  }; 
+  };
 
   # Change GTK theme
   gtk = {
@@ -56,7 +57,6 @@ in {
   };
 
   # Doesn't work, figure out why..
-  # services.betterlockscreen.enable = true;
 
   imports = (import ./programs) ++ (import ./shell);
 

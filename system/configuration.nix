@@ -130,6 +130,16 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Enable Podman (an alternative docker engine)
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+    };
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
