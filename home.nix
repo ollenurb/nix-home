@@ -29,9 +29,9 @@ let
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
-    brittany                # code formatter
-    cabal-install           # cabal
-    ghc                     # compiler
+    brittany                          # code formatter
+    cabal-install                     # cabal
+    ghc                               # compiler
   ];
 in {
   home = {

@@ -7,7 +7,7 @@
   services = {
     dbus = {
       enable = true;
-      packages = [ pkgs.gnome3.dconf ];	
+      packages = [ pkgs.gnome3.dconf ];
     };
     # Xorg-configurations
     xserver = {
@@ -18,7 +18,7 @@
       # Display Manager configurations
       displayManager = {
         defaultSession = "none+i3";
-        autoLogin.enable = true; 
+        autoLogin.enable = true;
         autoLogin.user = "matteo";
         lightdm.greeter.enable = false;
       };
