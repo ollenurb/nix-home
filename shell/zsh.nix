@@ -11,6 +11,17 @@
       options-home = "man home-configuration.nix";
       ls = "ls --color=auto";
       l = "exa -l --icons";
+      # Build only the changed wiki files
+      w2h = ''
+        git status --short |
+        awk '{print $2}' |
+        awk -F. 'match($NF, "md"){print substr($0, 0, length($0) - 3)}' |
+        xargs -I {} -n1 pandoc "{}.md" --mathjax -d wiki.yaml -o "{}.html"
+      '';
+      # Build the entire wiki
+      w0h = ''
+       find . -iname "*.md" -type f -exec sh -c 'pandoc "''${0}" --mathjax -d wiki.yaml -o "''${0%.md}.html" ' {} \;
+      '';
     };
     # Setup custom prompt
     initExtra = ''

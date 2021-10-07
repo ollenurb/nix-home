@@ -1,0 +1,6 @@
+metadata-files:
+- /home/matteo/.pandoc/configs/config.yaml
+- /home/matteo/.pandoc/configs/dispense.yaml
+bibliography:
+- /home/matteo/Desktop/University/Courses/bibliography.bib
+csl: /home/matteo/.pandoc/csls/ieee.csl

@@ -1,0 +1,11 @@
+papersize: A4
+reference-section-title: "Bibliografia"
+toc-own-page: true
+toc: true
+toc-title: "Indice"
+numbersections: true
+titlepage: true
+lang: it
+header-includes: |
+ \usepackage{tikz}
+

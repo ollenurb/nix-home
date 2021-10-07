@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="generator" content="pandoc">
+        $if(author)$<meta name="author" content="$author$">$endif$
+        $if(description)$<meta name="description" content="$description$">$endif$
+        $if(title)$<title>$title$</title>$endif$
+        <!-- Include Base CSS -->
+        <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet"/>
+        <!-- Get Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        $if(highlighting-css)$
+        <style type="text/css">
+            $highlighting-css$
+        </style>
+        $endif$
+
+        $for(header-includes)$
+        $header-includes$
+        $endfor$
+        $if(math)$
+        $math$
+        $endif$
+        <style>
+        html {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #202020;
+            color: #dcddde;
+            font-size: 14pt;
+        }
+
+        p { font-size: 14pt; }
+        .border { border-color: #999; }
+        .border-left { border-color: #999; }
+
+        hr {
+            color: #999;
+            background-color: #999;
+            border: none;
+            height: 1px;
+        }
+
+        a { color: #7f6df2; }
+
+        li a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .toc-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sourceCode {
+            background-color: #161616;
+            border-radius: 0.3em;
+        }
+
+        code.sourceCode {
+            color: #dcddde;
+            border-radius: 2px;
+            padding: 2px 4px;
+        }
+
+        pre.sourceCode {
+            margin: 16px;
+        }
+
+        code {
+            color: #C7254E;
+            background-color: #1A1A1A;
+            border-radius: 2px;
+            padding: 2px 4px;
+        }
+
+
+        blockquote {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            padding-left: 8px;
+            border-color: #333;
+            border-style: solid;
+            border-width: 1px 1px 1px 8px;
+            border-radius: 0 0.3em 0.3em 0;
+        }
+        </style>
+    </head>
+    <!-- Body Content -->
+    <body>
+      $for(include-before)$
+      $include-before$
+      $endfor$
+        <div class="px3 py2 lg-px4">
+            <div class="clearfix border rounded py2">
+                $if(toc)$
+                <div class="col lg-col-10 md-col px2">
+                    $if(title)$
+                    <h1>$title$</h1>
+                    <hr>
+                    $endif$
+$body$
+                </div>
+                <div class="col lg-col-2 md-col px2 border-left">
+                    <div class="toc-container">$toc$</div>
+                </div>
+                $else$
+                <div class="px2">
+                    $if(title)$
+                    <h1>$title$</h1>
+                    <hr>
+                    $endif$
+$body$
+                </div>
+                $endif$
+            </div>
+        </div>
+        $for(include-after)$
+        $include-after$
+        $endfor$
+    </body>
+</html>

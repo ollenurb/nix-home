@@ -26,6 +26,7 @@ let
     mpv                               # Video Player
     zathura                           # .pdf viewer
     betterlockscreen                  # lockscreen
+    obsidian                          # knownledge base
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
