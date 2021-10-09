@@ -6,4 +6,5 @@
   ./picom
   ./dunst
   ./lf
+  ./redshift
 ]
