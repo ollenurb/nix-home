@@ -26,35 +26,47 @@
         $math$
         $endif$
         <style>
+        :root {
+          --bg: #FEF5E6;
+          --fg: #1d263b;
+          --fg-secondary: #5C6784;
+          --source-code-bg: #1b2b34;
+          --source-code-fg: #CFD6E0;
+        }
+
         html {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background-color: #202020;
-            color: #dcddde;
+            background-color: var(--bg);
+            color: var(--fg);
             font-size: 14pt;
+            font-weight: 300;
         }
 
         p { font-size: 14pt; }
-        .border { border-color: #999; }
-        .border-left { border-color: #999; }
+        .border { border-color: var(--fg); }
+        .border-left { border-color: var(--fg); }
 
         hr {
-            color: #999;
-            background-color: #999;
+            color: var(--fg);
+            background-color: var(--fg);
             border: none;
             height: 1px;
         }
 
-        a { color: #7f6df2; }
+        a {
+            text-decoration: none;
+            color: var(--fg-secondary);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
 
         .toc-container li {
             padding: 4px 0;
+            font-size: 11pt;
             line-height: 1.2;
-        }
-
-        .toc-container ul li a {
-            color: #999;
-            text-decoration: none;
         }
 
         .toc-container ul {
@@ -63,12 +75,12 @@
         }
 
         .sourceCode {
-            background-color: #161616;
+            background-color: var(--source-code-bg);
             border-radius: 0.3em;
         }
 
         code.sourceCode {
-            color: #dcddde;
+            color: var(--source-code-fg);
             border-radius: 2px;
             padding: 2px 4px;
         }
@@ -78,10 +90,18 @@
         }
 
         code {
-            color: #C7254E;
-            background-color: #1A1A1A;
+            display: inline-block;
+            color: var(--source-code-fg);
+            background-color: var(--source-code-bg);
             border-radius: 2px;
-            padding: 2px 4px;
+            padding: 0px 2px;
+        }
+
+        .metablock { font-size: 11pt; }
+
+        .tag {
+            margin-left: 4px;
+            margin-bottom: 4px;
         }
 
         blockquote {
@@ -89,7 +109,7 @@
             margin-block-start: 1em;
             margin-block-end: 1em;
             padding-left: 8px;
-            border-color: #333;
+            border-color: var(--fg);
             border-style: solid;
             border-width: 1px 1px 1px 8px;
             border-radius: 0 0.3em 0.3em 0;
@@ -107,6 +127,17 @@
                 <div class="col lg-col-10 md-col px2">
                     $if(title)$
                     <h1>$title$</h1>
+                    <div class="metablock">
+                        $if(date)$Date: $date$<br/>$endif$
+                        $if(keywords)$
+                        Tags:
+                        $for(keywords)$
+                            <code class="tag">
+                            $keywords$
+                            </code>
+                        $endfor$
+                    $endif$
+                    </div>
                     <hr>
                     $endif$
 $body$
