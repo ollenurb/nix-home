@@ -69,6 +69,7 @@ in {
       userEmail = "brunello.mtt@gmail.com";
       extraConfig = {
         core.editor = "nvim";
+        init.defaultBranch = "main";
       };
     };
 

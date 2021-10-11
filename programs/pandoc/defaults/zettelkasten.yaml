@@ -1,0 +1,15 @@
+template: zettelkasten.html
+
+csl: /home/matteo/.pandoc/csls/ieee.csl
+
+bibliography:
+- /home/matteo/Desktop/Zettelkasten/.biblio/bibliography.bib
+- /home/matteo/Desktop/Zettelkasten/.biblio/linkography.bib
+- /home/matteo/Desktop/Zettelkasten/.biblio/podcasting.bib
+- /home/matteo/Desktop/University/Courses/bibliography.bib
+
+filters:
+- links-to-html.lua
+
+metadata-files:
+- /home/matteo/.pandoc/configs/config.yaml

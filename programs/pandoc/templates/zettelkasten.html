@@ -27,32 +27,50 @@
         $endif$
         <style>
         :root {
-          --bg:  #282828;
+          --bg: #282828;
           --bg-secondary: #737373;
           --fg: #fbf1c7;
           --fg-secondary: #83a598;
+          --tag-fg: #282828;
+          --tag-bg: #83a598;
           --source-code-bg: #fbf1c7;
           --source-code-fg: #282828;
+          --blockquote-color: #a89984;
         }
 
         html {
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
             background-color: var(--bg-secondary);
+            line-height: 1.6;
             color: var(--fg);
-            font-size: 14pt;
+            font-size: 11pt;
             font-weight: 300;
         }
 
-        p { font-size: 14pt; }
-        .border { border-color: var(--fg); }
+        #bibliography { font-size: 16pt; }
+
+        .card {
+            background-color: var(--bg);
+            filter: drop-shadow(15px 15px 4px #4d4d4d);
+        }
+
         .border-left { border-color: var(--fg); }
+        .border { border-color: var(--fg); }
+        .rounded { border-radius: 10px; }
 
         hr {
             color: var(--fg);
             background-color: var(--fg);
             border: none;
             height: 1px;
+        }
+
+        ul {
+            padding-left: 1.5em;
+        }
+
+        ol {
+            padding-left: 1.5em;
         }
 
         a {
@@ -64,30 +82,18 @@
             text-decoration: underline;
         }
 
-        .card {
-            background-color: var(--bg);
-            filter: drop-shadow(15px 15px 4px #4d4d4d);
-        }
-
-        .toc-container li {
-            padding: 4px 0;
-            font-size: 11pt;
-            line-height: 1.2;
-        }
-
-        .toc-container ul {
-            list-style: none;
-            padding: 0;
-        }
-
         .sourceCode {
             background-color: var(--source-code-bg);
             border-radius: 0.3em;
         }
 
+        div.sourceCode {
+            margin: 0 1em;
+        }
+
         code.sourceCode {
             color: var(--source-code-fg);
-            border-radius: 2px;
+            border-radius: 0.2em;
             padding: 2px 4px;
         }
 
@@ -103,78 +109,60 @@
             padding: 0px 2px;
         }
 
-        .metablock { font-size: 11pt; }
-
-        .tag {
-            margin-left: 4px;
+        .title {
+            margin-top: 0px;
             margin-bottom: 4px;
         }
 
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-fg);
+            display: inline-block;
+            border-radius: 2px;
+            margin-bottom: 4px;
+            padding: 0px 4px;
+        }
+
         blockquote {
-            display: block;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            padding-left: 8px;
-            border-color: var(--fg);
+            padding-left: 0.4em;
+            border-color: var(--blockquote-color);
             border-style: solid;
             border-width: 1px 1px 1px 8px;
             border-radius: 0 0.3em 0.3em 0;
         }
-        </style>
+    </style>
     </head>
     <!-- Body Content -->
     <body>
       $for(include-before)$
       $include-before$
       $endfor$
-        <div class="px3 py2 lg-px4">
-            <div class="card clearfix py2">
-                $if(toc)$
-                <div class="col lg-col-10 md-col px2">
-                    $if(title)$
-                    <h1>$title$</h1>
-                    <div class="metablock">
-                        $if(date)$Date: $date$<br/>$endif$
-                        $if(keywords)$
-                        Tags:
-                        $for(keywords)$
-                            <code class="tag">
-                            $keywords$
-                            </code>
-                        $endfor$
-                        $endif$
-                    </div>
-                    <hr>
-                    $endif$
+      <div class="clearfix px3 py2 lg-px4">
+          <div class="lg-col-8
+                      md-col-10
+                      sm-col-12
+                      mx-auto
+                      rounded
+                      card
+                      p2">
+                  $if(title)$
+                  <h1 class="title">$title$</h1>
+                  $endif$
+                  <div class="metablock">
+                      $if(keywords)$
+                      $for(keywords)$
+                      <a href="https://scholar.google.com/scholar?&q=$keywords$" class="tag">#$keywords$</a>
+                      $endfor$
+                      $endif$
+                      $if(date)$<br>Date: $date$$endif$
+                  </div> <!-- End Metadata Block -->
+                  <hr>
 $body$
-                </div>
-                <div class="col lg-col-2 md-col px2 border-left">
-                    <div class="toc-container">$toc$</div>
-                </div>
-                $else$
-                <div class="px2">
-                    $if(title)$
-                    <h1>$title$</h1>
-                    <div class="metablock">
-                        $if(date)$Date: $date$<br/>$endif$
-                        $if(keywords)$
-                        Tags:
-                        $for(keywords)$
-                            <code class="tag">
-                            $keywords$
-                            </code>
-                        $endfor$
-                        $endif$
-                    </div>
-                    <hr>
-                    $endif$
-$body$
-                </div>
-                $endif$
-            </div>
-        </div>
-        $for(include-after)$
-        $include-after$
-        $endfor$
+              </div>
+          </div>
+      </div>
+      $for(include-after)$
+      $include-after$
+      $endfor$
     </body>
 </html>

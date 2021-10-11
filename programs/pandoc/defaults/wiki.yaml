@@ -1,7 +1,13 @@
 template: wiki.html
+
 toc: true
 toc-depth: 2
+
 filters:
 - links-to-html.lua
+
 metadata-files:
 - /home/matteo/.pandoc/configs/config.yaml
+
+bibliography:
+- /home/matteo/Desktop/University/Courses/bibliography.bib
