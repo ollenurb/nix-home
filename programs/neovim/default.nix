@@ -63,13 +63,15 @@ in
     plugins = with pkgs.vimPlugins; [
       # Language Server Protocol - Related
       nvim-lspconfig
-      nvim-compe
 
       # Syntax highlighting/language-specific
       nvim-ts-rainbow
       nvim-treesitter
       vim-nix
       vim-markdown
+
+      # Fuzzy Finder
+      telescope-nvim
 
       # Misc
       delimitMate # auto bracket

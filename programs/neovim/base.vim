@@ -13,6 +13,7 @@ set nobackup
 set smartcase
 set mouse=a
 set tabstop=2 softtabstop=0 expandtab shiftwidth=4 smarttab
+let mapleader=" "
 " MaxWidth on markdown files
 au BufNewFile,BufRead *.md
     \ set textwidth=80

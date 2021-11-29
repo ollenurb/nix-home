@@ -17,7 +17,7 @@ let
     spotify                           # Music player
     rofi-power-menu                   # Power menu
     feh                               # Image viewer
-    maim                              # Screeshot taker
+    flameshot                         # Screeshot taker
     tdesktop                          # Telegram
     discord                           # discord
     element-desktop                   # Matrix client
@@ -27,6 +27,7 @@ let
     zathura                           # .pdf viewer
     betterlockscreen                  # lockscreen
     taskell                           # kanban/todo cli board
+    ripgrep                           # faster grep
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
