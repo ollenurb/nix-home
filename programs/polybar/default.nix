@@ -19,7 +19,6 @@ let
     format-foreground = ''${colors.Black}
     format-background = ''${colors.DarkGrey}
     label = %output%
-
     interval = 5
   '';
 
