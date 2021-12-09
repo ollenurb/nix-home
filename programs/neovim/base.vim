@@ -3,11 +3,13 @@
 " ----------------------------------------------------------------------------
 filetype plugin on
 syntax on
-colorscheme gruvbox
+colorscheme gruvbox-material
 set noswapfile
+set noshowmode
 set ignorecase
 set encoding=utf-8
 set number
+set termguicolors
 set hidden
 set nobackup
 set smartcase

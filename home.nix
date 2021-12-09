@@ -26,7 +26,6 @@ let
     mpv                               # Video Player
     zathura                           # .pdf viewer
     betterlockscreen                  # lockscreen
-    taskell                           # kanban/todo cli board
     ripgrep                           # faster grep
   ];
 
@@ -34,6 +33,7 @@ let
     brittany                          # code formatter
     cabal-install                     # cabal
     ghc                               # compiler
+    haskell-language-server           # hls
   ];
 in {
   home = {

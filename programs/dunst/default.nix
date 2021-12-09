@@ -7,8 +7,8 @@
     enable = true;
     settings = {
       global = {
-        geometry = "500x6-14+44";
-        frame_color = "${config.colors.background}";
+        geometry = "500x6-24+44";
+        frame_width = 0;
         font = "Iosevka Nerd Font 12";
         word_wrap = true;
         markup = true;

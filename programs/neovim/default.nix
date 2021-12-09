@@ -1,28 +1,11 @@
 { config, pkgs, lib, ... }:
 let
-  neovim-5 = pkgs.neovim-unwrapped.overrideAttrs (
-    old: {
-      name    = "neovim-5.0.0";
-      version = "v0.5.0";
-
-      src = pkgs.fetchFromGitHub {
-        owner  = "neovim";
-        repo   = "neovim";
-        rev    = "a5ac2f45ff84a688a09479f357a9909d5b914294";
-        sha256 = "0lgbf90sbachdag1zm9pmnlbn35964l3khs27qy4462qzpqyi9fi";
-      };
-      buildInputs = old.buildInputs ++ [
-        pkgs.tree-sitter
-      ];
-    }
-  );
-
-  # Taken from https://breuer.dev/blog/nixos-home-manager-neovim
-  # Installs a vim plugin from git with a given tag / branch
-  pluginGit = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
+  # taken from https://breuer.dev/blog/nixos-home-manager-neovim
+  # installs a vim plugin from git with a given tag / branch
+  pluginGit = ref: repo: pkgs.vimutils.buildvimpluginfrom2nix {
+    pname = "${lib.strings.sanitizederivationname repo}";
     version = ref;
-    src = builtins.fetchGit {
+    src = builtins.fetchgit {
       url = "https://github.com/${repo}.git";
       ref = ref;
     };
@@ -37,17 +20,17 @@ in
     withPython3 = true; # for plugins
     vimAlias    = true;
     viAlias     = true;
-    package     = neovim-5;
 
     # Configurations are stored in separate files
     extraConfig = builtins.concatStringsSep "\n" [
       (lib.strings.fileContents ./base.vim)
       (lib.strings.fileContents ./plugins/plugins.vim)
-      (lib.strings.fileContents ./lsp.vim)
       ''
         lua << EOF
-        ${lib.strings.fileContents ./plugins/statusline.lua}
+        ${lib.strings.fileContents ./lsp.lua}
+        ${lib.strings.fileContents ./plugins/lualine.lua}
         ${lib.strings.fileContents ./plugins/bufferline.lua}
+        ${lib.strings.fileContents ./plugins/cmp-nvim.lua}
         EOF
       ''
     ];
@@ -63,6 +46,11 @@ in
     plugins = with pkgs.vimPlugins; [
       # Language Server Protocol - Related
       nvim-lspconfig
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
+      nvim-cmp
 
       # Syntax highlighting/language-specific
       nvim-ts-rainbow
@@ -80,14 +68,14 @@ in
       tabular
       vimwiki
       vim-better-whitespace
-      nvim-toggleterm-lua
+      toggleterm-nvim
       vim-gitgutter
 
       # EyeCandies
-      gruvbox
+      gruvbox-material
       nvim-web-devicons
-      nvim-bufferline-lua
-      galaxyline-nvim
+      lualine-nvim
+      bufferline-nvim
     ];
   };
 }

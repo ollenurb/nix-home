@@ -11,7 +11,7 @@
       options-home = "man home-configuration.nix";
       ls = "ls --color=auto";
       l = "exa -l --icons";
-      # Build only the changed wiki files
+      # Build only changed wiki files
       w2h = ''
         git status --short |
         awk '{print $2}' |
