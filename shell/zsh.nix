@@ -23,12 +23,13 @@
        find . -iname "*.md" -type f -exec sh -c 'pandoc "''${0}" --mathjax -d wiki.yaml -o "''${0%.md}.html" ' {} \;
       '';
       grep = "${pkgs.ripgrep}/bin/rg";
+      todo = "${pkgs.neovim}/bin/nvim $ZETTELKASTEN_HOME/organizer/TodoList.md";
       fcd = "cd ''$(${pkgs.fd}/bin/fd --type d | ${pkgs.fzf}/bin/fzf)";
     };
     # Setup custom prompt
     initExtra = ''
         PROMPT="%B%F{blue}λ%f %F{244}%f %F{cyan}%1~%f%b "
-
+        ZETTELKASTEN_HOME="$HOME/zettelkasten"
     '';
     # Add plugins
     plugins = [

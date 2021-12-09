@@ -27,6 +27,10 @@ let
     zathura                           # .pdf viewer
     betterlockscreen                  # lockscreen
     ripgrep                           # faster grep
+
+    # ---------- Uni-related stuff ---------- #
+    protege-distribution
+
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
