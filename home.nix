@@ -27,6 +27,8 @@ let
     zathura                           # .pdf viewer
     betterlockscreen                  # lockscreen
     ripgrep                           # faster grep
+    entr                              # utility that watch for file changes
+    rpiplay                           # AirPlay server to mirror the iPad screen
 
     # ---------- Uni-related stuff ---------- #
     protege-distribution
@@ -61,8 +63,6 @@ in {
       name = "oomox-gruvbox-dark";
     };
   };
-
-  # Doesn't work, figure out why..
 
   imports = (import ./programs) ++ (import ./shell);
 

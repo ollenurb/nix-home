@@ -140,9 +140,21 @@ in
     };
   };
 
+  # Enable the Avahi daemon (Essentially used to stream the iPad screen)
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+      userServices = true;
+    };
+  };
+
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 7000 7100 ];
+  networking.firewall.allowedUDPPorts = [ 6000 6001 7011 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

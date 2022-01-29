@@ -51,6 +51,7 @@ in
       cmp-path
       cmp-cmdline
       nvim-cmp
+      neoformat
 
       # Syntax highlighting/language-specific
       nvim-ts-rainbow
