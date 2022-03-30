@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 let
   # taken from https://breuer.dev/blog/nixos-home-manager-neovim
   # installs a vim plugin from git with a given tag / branch
@@ -29,7 +29,6 @@ in
         lua << EOF
         ${lib.strings.fileContents ./lsp.lua}
         ${lib.strings.fileContents ./plugins/lualine.lua}
-        ${lib.strings.fileContents ./plugins/bufferline.lua}
         ${lib.strings.fileContents ./plugins/cmp-nvim.lua}
         EOF
       ''
@@ -76,7 +75,6 @@ in
       gruvbox-material
       nvim-web-devicons
       lualine-nvim
-      bufferline-nvim
     ];
   };
 }

@@ -8,3 +8,6 @@ In order to stream the iPad screen you need to run an AirPlay server
 3. Set the following allowed ports by the firewall (inside `system/configuration`):
     - TCP: 7000, 7100
     - UDP: 6000, 6001, 7011
+
+## Optimizing /nix/store
+https://nixos.wiki/wiki/Storage_optimization
