@@ -1,5 +1,5 @@
 # Testing
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Enabling dconf allow the use of gsettings
@@ -26,6 +26,7 @@
       windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
+        configFile = ./i3-config;
       };
     };
   };

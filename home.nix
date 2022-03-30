@@ -29,6 +29,7 @@ let
     ripgrep                           # faster grep
     entr                              # utility that watch for file changes
     rpiplay                           # AirPlay server to mirror the iPad screen
+    jetbrains.idea-ultimate           # IntelliJ
 
     # ---------- Uni-related stuff ---------- #
     protege-distribution
@@ -41,6 +42,7 @@ let
     ghc                               # compiler
     haskell-language-server           # hls
   ];
+
 in {
   home = {
     username = "matteo";

@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   customFonts = pkgs.nerdfonts.override {
@@ -19,21 +19,50 @@ in
       ./wm/i3.nix
     ];
 
+  boot.initrd.availableKernelModules = [
+    "thinkpad_acpi"
+  ];
+
   # Use the GRUB bootloader.
   boot.loader = {
     grub = {
       enable = true;
       devices = [ "nodev" ];
       efiSupport = true;
+      splashImage = ../theming/grub_bg.png;
     };
     efi.canTouchEfiVariables = true;
   };
 
   # Enable battery management through upower
   services.upower.enable = true;
+  powerManagement.powertop.enable = true;
 
-  # Enable power management through tlp
-  services.tlp.enable = true;
+  # Power management stuff
+  boot.extraModprobeConfig = lib.mkMerge [
+    # idle audio card after one second
+    "options snd_hda_intel power_save=1"
+    # enable wifi power saving (keep uapsd off to maintain low latencies)
+    "options iwlwifi power_save=1 uapsd_disable=1"
+  ];
+
+  # services.udev.packages = [ pkgs.callPackage ./udev/battery-status.nix { inherit pkgs; } ]
+  services.udev.extraRules = lib.mkMerge [
+    # autosuspend USB devices
+    ''ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"''
+    # autosuspend PCI devices
+    ''ACTION=="add", SUBSYSTEM=="pci", TEST=="power/control", ATTR{power/control}="auto"''
+    # disable Ethernet Wake-on-LAN
+    ''ACTION=="add", SUBSYSTEM=="net", NAME=="enp*", RUN+="${pkgs.ethtool}/sbin/ethtool -s $name wol d"''
+  ];
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC="performance";
+      CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+    };
+  };
 
   # Define your hostname
   networking.hostName = "lambda";
@@ -44,9 +73,6 @@ in
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
-
-  # Set extra udev rules
-  # services.udev.packages = [ combinedBatteries ]; # TODO: Need to set up something better
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -141,20 +167,20 @@ in
   };
 
   # Enable the Avahi daemon (Essentially used to stream the iPad screen)
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {
-      enable = true;
-      addresses = true;
-      workstation = true;
-      userServices = true;
-    };
-  };
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns = true;
+  #   publish = {
+  #     enable = true;
+  #     addresses = true;
+  #     workstation = true;
+  #     userServices = true;
+  #   };
+  # };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 7000 7100 ];
-  networking.firewall.allowedUDPPorts = [ 6000 6001 7011 ];
+  # networking.firewall.allowedTCPPorts = [ 7000 7100 ];
+  # networking.firewall.allowedUDPPorts = [ 6000 6001 7011 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
